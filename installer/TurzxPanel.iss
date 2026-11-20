@@ -6,7 +6,7 @@
 #define AppExe "TurzxPanel.exe"
 
 [Setup]
-AppId={{B7E4C1D2-5A3F-4E8B-9C61-2D7F0A8E4B15}
+AppId={{3F9A6C28-71D4-4B0E-A5C3-8E12D9F47B60}
 AppName={#AppName}
 AppVersion={#AppVersion}
 AppPublisher=Anum Amir
