@@ -18,6 +18,24 @@ Based on [hurricane_beast916_sensor_display](https://github.com/Anum1212/hurrica
 
 Close the vendor TURZX app first: only one program can hold the COM port.
 
+## Install
+
+Download `TurzxPanel-Setup-<version>.exe` from the [Releases](../../releases) page and run it. It installs the app, can add a desktop shortcut,
+and offers to install the free [PawnIO](https://pawnio.eu) driver that CPU temperature and power need. Close the vendor TURZX app first.
+
+## Making a release (maintainers)
+
+The workflow in `.github/workflows/release.yml` builds the installer on GitHub and attaches it to a release:
+
+```powershell
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+A manual run of the workflow ("Actions" tab, "Run workflow") builds the installer as a downloadable artifact without making a release.
+To build it on your own PC instead, install [Inno Setup 6](https://jrsoftware.org/isdl.php) and run `installer\build-installer.ps1 -Version 1.0.0`;
+the installer is written to `release\`.
+
 ## Build
 
 ```powershell

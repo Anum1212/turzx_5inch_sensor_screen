@@ -154,6 +154,18 @@ public static class AppIcon
             g.DrawLine(needle, s * 0.5f, s * 0.5f, s * 0.68f, s * 0.36f);
         using var hub = new SolidBrush(Color.White);
         g.FillEllipse(hub, s * 0.455f, s * 0.455f, s * 0.09f, s * 0.09f);
+
+        // Corner badge with a "T" so this app is told apart from the Hurricane Beast one that shares the gauge.
+        var badge = new RectangleF(s * 0.085f, s * 0.635f, s * 0.29f, s * 0.29f);
+        using (var badgeBrush = new SolidBrush(Color.FromArgb(255, 44, 30, 140)))
+            g.FillEllipse(badgeBrush, badge);
+        using (var ring = new Pen(Color.White, Math.Max(1f, s * 0.02f)))
+            g.DrawEllipse(ring, badge);
+        g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+        using var font = new Font("Segoe UI", s * 0.17f, FontStyle.Bold, GraphicsUnit.Pixel);
+        using var fmt = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+        var textBox = new RectangleF(badge.X, badge.Y + s * 0.005f, badge.Width, badge.Height);
+        g.DrawString("T", font, Brushes.White, textBox, fmt);
         return bmp;
     }
 
